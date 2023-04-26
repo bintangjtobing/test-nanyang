@@ -15,7 +15,7 @@
 </head>
 
 <body>
-    <div class="container">
+    <div class="container-fluid" style="padding: 0 10rem;">
         <div class="row justify-content-md-center my-5">
             <div class="col-md-12 text-center">
                 <h3><b>Nanyang Zhi Hui Modern Indonesian School</b><br>Test IT & Programmer</h3>
@@ -100,6 +100,7 @@
                                                 Phone Number: {{$item->phone_number}}
                                                 <hr>
                                                 <b>Detail about downline related</b><br>
+                                                <i>Still not yet connected into detail view</i>
                                                 @foreach ($getMember as $item)
                                                 Name: {{ $item->name }} <br>
                                                 Address: {{ $item->address }} <br>
