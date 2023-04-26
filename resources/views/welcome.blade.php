@@ -37,7 +37,8 @@
             @csrf
             <div class="row justify-content-end">
                 <div class="form-group w-100 mb-3">
-                    <input type="text" name="search" class="form-control w-75 d-inline" id="search" placeholder="Silahkan cari disini...">
+                    <input type="text" name="search" class="form-control w-75 d-inline" id="search"
+                        placeholder="Silahkan cari disini...">
                     <button type="submit" class="btn btn-primary mb-1">Cari</button>
                 </div>
             </div>
@@ -69,13 +70,47 @@
                             <td>{{ $item->phone_number }}</td>
                             <td>
                                 @if ($item->idRelated != null)
-                                    Head of #{{$item->idRelated}}
-                                    @else
+                                    Head of #{{ $item->idRelated }}
+                                @else
                                     Upline
                                 @endif
                             </td>
-                            <td><a href="/process/get/member/{{ $item->id }}" class="btn btn-warning px-3 btn-sm"><i
-                                        class="far fa-edit"></i>
+                            <td><a href="/process/get/member/{{ $item->id }}" data-toggle="modal"
+                                    data-target="#seeDetailMember{{ $item->id }}"
+                                    class="btn btn-success px-3 btn-sm"><i class="far fa-eye"></i>
+                                    See Detail</a>
+                                <!-- Modal -->
+                                <div class="modal fade" id="seeDetailMember{{ $item->id }}" tabindex="-1"
+                                    role="dialog" aria-labelledby="seeDetailMember{{ $item->id }}"
+                                    aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLongTitle">Info data user
+                                                    #{{ $item->name }}</h5>
+                                                <button type="button" class="close" data-dismiss="modal"
+                                                    aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <b>Detail about the user ID #{{$item->id}}</b> <br>
+                                                Name: {{ $item->name }} <br>
+                                                Address: {{ $item->address }} <br>
+                                                Phone Number: {{$item->phone_number}}
+                                                <hr>
+                                                <b>Detail about downline related</b><br>
+                                                @foreach ($getMember as $item)
+                                                Name: {{ $item->name }} <br>
+                                                Address: {{ $item->address }} <br>
+                                                Phone Number: {{$item->phone_number}} <br> <br>
+                                                @endforeach
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <a href="/process/get/member/{{ $item->id }}"
+                                    class="btn btn-warning px-3 btn-sm"><i class="far fa-edit"></i>
                                     Edit</a>
                                 <button type="button" class="btn btn-danger px-3 btn-sm" data-toggle="modal"
                                     data-target="#deleteMember{{ $item->id }}"><i class="far fa-trash-alt"></i>
@@ -88,7 +123,8 @@
                                     <div class="modal-dialog modal-dialog-centered" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalLongTitle">Delete data user #{{$item->id}}</h5>
+                                                <h5 class="modal-title" id="exampleModalLongTitle">Delete data user
+                                                    #{{ $item->id }}</h5>
                                                 <button type="button" class="close" data-dismiss="modal"
                                                     aria-label="Close">
                                                     <span aria-hidden="true">&times;</span>
@@ -96,13 +132,14 @@
                                             </div>
                                             <div class="modal-body">
                                                 <b>Are you sure to delete this user and this relation?</b> <br>
-                                                Name related is: {{$item->name}} <br>
-                                                ID related is: {{$item->id}}
+                                                Name related is: {{ $item->name }} <br>
+                                                ID related is: {{ $item->id }}
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary"
                                                     data-dismiss="modal">Cancel</button>
-                                                <a href="/process/delete/member/{{$item->id}}" class="btn btn-primary">Sure!</a>
+                                                <a href="/process/delete/member/{{ $item->id }}"
+                                                    class="btn btn-primary">Sure!</a>
                                             </div>
                                         </div>
                                     </div>
@@ -118,7 +155,8 @@
 
     {{-- Modal collection --}}
     <!-- #addMember -->
-    <div class="modal fade" id="addMember" tabindex="-1" role="dialog" aria-labelledby="addMember" aria-hidden="true">
+    <div class="modal fade" id="addMember" tabindex="-1" role="dialog" aria-labelledby="addMember"
+        aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">

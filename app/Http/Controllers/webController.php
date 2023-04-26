@@ -12,6 +12,7 @@ class webController extends Controller
     {
         $getMember = DB::table('users')->where('idRelated', null)->orderBy('id', 'asc')->get();
         // Get JSON
+
         // return response($getMember, 200);
         return view('welcome', ['getMember' => $getMember]);
     }
@@ -42,18 +43,17 @@ class webController extends Controller
         $getAllMember = User::where('idRelated', $id)->get();
 
         // get member that downline have a downline
-        $getUser = User::where('idUsersRelated', 'idRelated')->where('idRelated',$id)->get();
+        $getUser = User::where('idUsersRelated', 'idRelated')->where('idRelated', $id)->get();
 
-        if($getAllMember->count() >= 1){
+        if ($getAllMember->count() >= 1) {
             // return response($getAllMember);
             return view('edit', ['getMember' => $getMember, 'getAllMember' => $getAllMember]);
-        }else if($getUser->count() >= 1){
+        } else if ($getUser->count() >= 1) {
             // return response($getUser);
             return view('edit', ['getMember' => $getMember, 'getUser' => $getUser]);
         }
         // return response($getMember);
-        return view('edit', ['getMember' => $getMember, 'getAllMember' => $getAllMember, 'getUser'=>$getUser]);
-
+        return view('edit', ['getMember' => $getMember, 'getAllMember' => $getAllMember, 'getUser' => $getUser]);
     }
     public function newDownline(Request $req, $id)
     {
@@ -82,9 +82,10 @@ class webController extends Controller
     {
         $keyword = $request->search;
         $getMember = User::where('name', 'like', "%" . $keyword . "%")
-        ->OrWhere('address', 'like', "%" . $keyword . "%")
-        ->OrWhere('phone_number', 'like', "%" . $keyword . "%")->get();
-        return view('welcome', ['getMember'=>$getMember])->with('i', (request()->input('page', 1) - 1) * 5);
+            ->OrWhere('id', 'like', "%" . $keyword . "%")
+            ->OrWhere('address', 'like', "%" . $keyword . "%")
+            ->OrWhere('phone_number', 'like', "%" . $keyword . "%")->get();
+        return view('welcome', ['getMember' => $getMember]);
         // return response($users);
     }
 }
