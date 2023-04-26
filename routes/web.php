@@ -8,4 +8,5 @@ Route::prefix('process')->group(function () {
     Route::POST('/new/downline/{id}', 'webController@newDownline');
     Route::GET('/get/member/{id}', 'webController@getMember');
     Route::GET('/delete/member/{id}', 'webController@deleteMember');
+    Route::GET('/search', 'webController@search');
 });

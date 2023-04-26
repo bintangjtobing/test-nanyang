@@ -19,6 +19,8 @@
         <div class="row justify-content-md-center my-5">
             <div class="col-md-12 text-center">
                 <h3><b>Nanyang Zhi Hui Modern Indonesian School</b><br>Test IT & Programmer</h3>
+                <a href="/" class="my-3">Home</a>
+
             </div>
         </div>
         @if (Session::has('success'))
@@ -31,6 +33,15 @@
                 </div>
             </div>
         @endif
+        <form class="form" method="get" action="/process/search">
+            @csrf
+            <div class="row justify-content-end">
+                <div class="form-group w-100 mb-3">
+                    <input type="text" name="search" class="form-control w-75 d-inline" id="search" placeholder="Silahkan cari disini...">
+                    <button type="submit" class="btn btn-primary mb-1">Cari</button>
+                </div>
+            </div>
+        </form>
         <div class="row justify-content-end">
             <button type="button" class="btn btn-primary px-3" data-toggle="modal" data-target="#addMember"><i
                     class="fas fa-user-plus"></i> Add member</button>
@@ -57,7 +68,11 @@
                             <td>{{ $item->address }}</td>
                             <td>{{ $item->phone_number }}</td>
                             <td>
-                                Upline
+                                @if ($item->idRelated != null)
+                                    Head of #{{$item->idRelated}}
+                                    @else
+                                    Upline
+                                @endif
                             </td>
                             <td><a href="/process/get/member/{{ $item->id }}" class="btn btn-warning px-3 btn-sm"><i
                                         class="far fa-edit"></i>

@@ -78,4 +78,13 @@ class webController extends Controller
         }
         // return response($req->all());
     }
+    public function search(Request $request)
+    {
+        $keyword = $request->search;
+        $getMember = User::where('name', 'like', "%" . $keyword . "%")
+        ->OrWhere('address', 'like', "%" . $keyword . "%")
+        ->OrWhere('phone_number', 'like', "%" . $keyword . "%")->get();
+        return view('welcome', ['getMember'=>$getMember])->with('i', (request()->input('page', 1) - 1) * 5);
+        // return response($users);
+    }
 }
