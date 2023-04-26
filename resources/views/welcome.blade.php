@@ -79,37 +79,7 @@
                                     data-target="#seeDetailMember{{ $item->id }}"
                                     class="btn btn-success px-3 btn-sm"><i class="far fa-eye"></i>
                                     See Detail</a>
-                                <!-- Modal -->
-                                <div class="modal fade" id="seeDetailMember{{ $item->id }}" tabindex="-1"
-                                    role="dialog" aria-labelledby="seeDetailMember{{ $item->id }}"
-                                    aria-hidden="true">
-                                    <div class="modal-dialog modal-dialog-centered" role="document">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalLongTitle">Info data user
-                                                    #{{ $item->name }}</h5>
-                                                <button type="button" class="close" data-dismiss="modal"
-                                                    aria-label="Close">
-                                                    <span aria-hidden="true">&times;</span>
-                                                </button>
-                                            </div>
-                                            <div class="modal-body">
-                                                <b>Detail about the user ID #{{$item->id}}</b> <br>
-                                                Name: {{ $item->name }} <br>
-                                                Address: {{ $item->address }} <br>
-                                                Phone Number: {{$item->phone_number}}
-                                                <hr>
-                                                <b>Detail about downline related</b><br>
-                                                <i>Still not yet connected into detail view</i><br><br>
-                                                @foreach ($getMember as $item)
-                                                Name: {{ $item->name }} <br>
-                                                Address: {{ $item->address }} <br>
-                                                Phone Number: {{$item->phone_number}} <br> <br>
-                                                @endforeach
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+
                                 <a href="/process/get/member/{{ $item->id }}"
                                     class="btn btn-warning px-3 btn-sm"><i class="far fa-edit"></i>
                                     Edit</a>
@@ -141,6 +111,37 @@
                                                     data-dismiss="modal">Cancel</button>
                                                 <a href="/process/delete/member/{{ $item->id }}"
                                                     class="btn btn-primary">Sure!</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Modal -->
+                                <div class="modal fade" id="seeDetailMember{{ $item->id }}" tabindex="-1"
+                                    role="dialog" aria-labelledby="seeDetailMember{{ $item->id }}"
+                                    aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLongTitle">Info data user
+                                                    #{{ $item->name }}</h5>
+                                                <button type="button" class="close" data-dismiss="modal"
+                                                    aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <b>Detail about the user ID #{{$item->id}}</b> <br>
+                                                Name: {{ $item->name }} <br>
+                                                Address: {{ $item->address }} <br>
+                                                Phone Number: {{$item->phone_number}}
+                                                <hr>
+                                                <b>Detail about downline related</b><br>
+                                                <i>Still not yet connected into detail view</i><br><br>
+                                                @foreach ($getMember as $item)
+                                                Name: {{ $item->name }} <br>
+                                                Address: {{ $item->address }} <br>
+                                                Phone Number: {{$item->phone_number}} <br> <br>
+                                                @endforeach
                                             </div>
                                         </div>
                                     </div>
