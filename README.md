@@ -19,7 +19,7 @@ The framework that I've mastered: Laravel, VueJS, Firebase, NodeJS, and Lumen
 Supports tools that I've learned: Adobe Photoshop, Adobe Illustrator, and Figma
 
 ## How to use this program
-I've already make it public, you can see the results in [this link](http://nanyang-test.bintangtobing.com), and if you want to manually install at your computer, you can follow this step:
+I've already make it public, you can see the results in [this link](http://testnanyang.bintangtobing.com), and if you want to manually install at your computer, you can follow this step:
 1. Clone the repository first
    ```sh
    git clone https://github.com/bintangjtobing/test-nanyang
