@@ -100,7 +100,7 @@
                                                 Phone Number: {{$item->phone_number}}
                                                 <hr>
                                                 <b>Detail about downline related</b><br>
-                                                <i>Still not yet connected into detail view</i>
+                                                <i>Still not yet connected into detail view</i><br><br>
                                                 @foreach ($getMember as $item)
                                                 Name: {{ $item->name }} <br>
                                                 Address: {{ $item->address }} <br>
